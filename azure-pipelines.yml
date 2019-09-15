@@ -24,6 +24,14 @@ trigger:
 # do not trigger on pull requests to avoid that tag 'latest' is pushed for pull requests
 pr: none
 
+schedules:
+- cron: "0 0 * * 0"
+  displayName: Weekly Sunday Rebuild
+  branches:
+    include:
+    - master
+  always: true
+
 pool:
   vmImage: ubuntu-latest
 
