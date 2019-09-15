@@ -1,5 +1,13 @@
 # Docker Hub Description
 
+[![Build Status](https://dev.azure.com/griffinplus/Docker%20Images/_apis/build/status/11?branchName=master)](https://dev.azure.com/griffinplus/Docker%20Images/_build/latest?definitionId=11&branchName=master)
+[![Docker Pulls](https://img.shields.io/docker/pulls/griffinplus/dockerhub-description.svg)](https://hub.docker.com/r/griffinplus/dockerhub-description)
+[![Github Stars](https://img.shields.io/github/stars/griffinplus/docker-dockerhub-description.svg?label=github%20%E2%98%85)](https://github.com/griffinplus/docker-dockerhub-description)
+[![Github Contributors](https://img.shields.io/github/contributors/griffinplus/docker-dockerhub-description.svg)](https://github.com/griffinplus/docker-dockerhub-description)
+[![Github Forks](https://img.shields.io/github/forks/griffinplus/docker-dockerhub-description.svg?label=github%20forks)](https://github.com/griffinplus/docker-dockerhub-description)
+
+
+
 This docker image updates the description of an image at the [Docker Hub](https://hub.docker.com/).
 
 It is based on the [work](https://github.com/peter-evans/dockerhub-description) of Peter Evans.
