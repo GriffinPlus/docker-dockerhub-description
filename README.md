@@ -1,12 +1,12 @@
 # Docker Hub Description
 
-This docker image updates the description of an image at the Docker Hub.
+This docker image updates the description of an image at the [Docker Hub](https://hub.docker.com/).
 
 It is based on the [work](https://github.com/peter-evans/dockerhub-description) of Peter Evans.
 
 ## Using
 
-To update the description of an image at Docker Hub, you simply need to mount the markdown file to use as the image
+To update the description of an image at the Docker Hub, you simply need to mount the markdown file to use as the image
 description into the container and set environment variables as follows:
 
 ```shell
