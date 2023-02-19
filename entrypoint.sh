@@ -86,15 +86,17 @@ echo "Update full description of the docker image..."
 echo "################################################################################"
 
 # send request to update the full description
+README=$(cat ${README_FILEPATH})
+REQUEST_BODY=$( jq -n --arg full_description "${README}" '{ full_description: $full_description }' )
 REPO_URL="https://hub.docker.com/v2/repositories/${DOCKERHUB_REPOSITORY}/"
 if [ "${SHOW_TRACE}" = "true" ]; then
-  RESPONSE_CODE=$(curl -s --write-out %{response_code} --output ${CURL_OUTPUT_FILE} -H "Authorization: JWT ${TOKEN}" -X PATCH --data-urlencode full_description@${README_FILEPATH} ${REPO_URL} --trace ${CURL_TRACE_FILE})
+  RESPONSE_CODE=$(curl -s --write-out %{response_code} --output ${CURL_OUTPUT_FILE} -X PATCH -H "Authorization: JWT ${TOKEN}" -H "Content-Type: application/json" -d "${REQUEST_BODY}" ${REPO_URL} --trace ${CURL_TRACE_FILE})
   echo "---- Connection Trace Start -----"
   cat ${CURL_TRACE_FILE}
   echo
   echo "---- Connection Trace End -----"
 else
-  RESPONSE_CODE=$(curl -s --write-out %{response_code} --output ${CURL_OUTPUT_FILE} -H "Authorization: JWT ${TOKEN}" -X PATCH --data-urlencode full_description@${README_FILEPATH} ${REPO_URL})
+  RESPONSE_CODE=$(curl -s --write-out %{response_code} --output ${CURL_OUTPUT_FILE} -X PATCH -H "Authorization: JWT ${TOKEN}" -H "Content-Type: application/json" -d "${REQUEST_BODY}" ${REPO_URL})
 fi
 
 # evaluate response code
